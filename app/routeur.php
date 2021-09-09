@@ -4,14 +4,15 @@
 ../app/routeur.php
 */
 
-
-//ROUTE PAR DEFAUT
-//PATTERN:/
+//ROUTE 2
+//Détails du post x
+//PATTERN: /post/x
 //CTRL:postsController
-//ACTION:index
-// include_once '../app/controller/postsController.php';
-// App\Controller\PostsController\indexAction($conn);
+//ACTION:detailsAction
 
+if(isset($_GET['postId'])):
+    include_once '../app/controller/postsController.php';
+    App\Controller\PostsController\detailsAction($conn,$_GET['postId']); 
 
 //ROUTE 1
 //Détails de la page x
@@ -19,7 +20,7 @@
 //CTRL:pagesController
 //ACTION:detailsAction
 
-if(isset($_GET['pageId'])):
+elseif (isset($_GET['pageId'])):
     include_once '../app/controller/pagesController.php';
     App\Controller\PagesController\detailsAction($conn,$_GET['pageId']); 
 
@@ -31,5 +32,5 @@ if(isset($_GET['pageId'])):
 //ACTION:detailsAction
 else:
     include_once '../app/controller/pagesController.php';
-    App\Controller\PagesController\detailsAction($conn,1);//Le 1 signifie le numéro de la page que l'on veut afficher.
+    App\Controller\PagesController\detailsAction($conn,1);  //Le 1 signifie le numéro de la page que l'on veut afficher.
 endif;    

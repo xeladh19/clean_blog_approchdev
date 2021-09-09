@@ -7,15 +7,14 @@
 
 ?>
 
-
         <!-- Page Header -->
-        <header class="masthead" style="background-image: url('img/<?php echo $pages['image']; ?>')">
+        <header class="masthead" style="background-image: url('img/<?php echo $page['image']; ?>')">
           <div class="container">
             <div class="row">
               <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                  <h1><?php echo $pages['titre']; ?></h1>
-                  <span class="subheading"><?php echo $pages['sousTitre']; ?></span>
+                  <h1><?php echo $page['titre']; ?></h1>
+                  <span class="subheading"><?php echo $page['sousTitre']; ?></span>
                 </div>
               </div>
             </div>
@@ -27,12 +26,13 @@
           <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
               <div class="clearfix">
-              <?php echo $pages['texte']; ?>
+              <?php echo $page['texte']; ?>
               </div>
 
               <!-- C'est ici que viendront les articles ou le formulaire de contact -->
               <?php 
-              switch ($pages ['id']):
+              
+              switch ($page ['id']):
                 case 1:
                   include_once '../app/controller/postsController.php';
                   App\Controller\PostsController\indexAction($conn);

@@ -33,7 +33,7 @@
                 </a>
               </li>
             </ul>
-            <p class="copyright text-muted">Copyright &copy; Your Website 2017</p>
+            <p class="copyright text-muted">Copyright &copy; Your Website 2021</p>
           </div>
         </div>
       </div>

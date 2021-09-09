@@ -20,7 +20,7 @@ use \Core\Functions;
       <?php foreach($posts as $post): ?>
 
       <div class="post-preview">
-        <a href="post.html">
+        <a href="post/<?php echo $post['id']; ?>">
           <h2 class="post-title">
             <?php echo $post['titre']; ?>
           </h2>

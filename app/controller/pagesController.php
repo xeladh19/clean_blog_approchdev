@@ -12,7 +12,7 @@ use \App\Model\PagesModel;
  */
 function detailsAction(\PDO $conn, int $id) {
     include_once '../app/model/pagesModel.php';
-    $pages =  PagesModel\findOneByID($conn,$id);
+    $page =  PagesModel\findOneByID($conn,$id);
 
     GLOBAL $content;
     ob_start();
