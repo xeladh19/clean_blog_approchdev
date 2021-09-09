@@ -8,6 +8,19 @@ Options +FollowSymlinks
 # Activation du module de réécriture d'URL :
 RewriteEngine on
 
+#DETAIL D'UNE PAGE 
+    #PATTERN: /page/x
+    #Détails de la page x
+    RewriteRule ^page\/([0-9]+)$ index.php?pageId=$1 [L]
+
+#ROUTE PAR DEFAUT:
+    #PATTERN: /
+    #Détails de la page 1
+    #RewriteRule ^(.*)$ index.php [L]
+
+
+    
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
 RewriteRule ^(.*)$ index.php [L]
+
