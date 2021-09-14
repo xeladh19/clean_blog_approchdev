@@ -9,3 +9,5 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/clean-blog.min.js"></script>
+
+    <?php echo $zoneScripts; ?>

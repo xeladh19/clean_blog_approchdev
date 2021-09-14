@@ -4,26 +4,22 @@
 */
 
 namespace App\Model\PostsModel;
-
-// function findAll(\PDO $conn, int $limit = 4){
-//     $sql = "SELECT *
-//             FROM posts
-//             ORDER BY datePublication DESC
-//             LIMIT :limit;";
-//     $rs = $conn->prepare($sql);
-//     $rs->bindValue(':limit', $limit, \PDO::PARAM_INT);
-//     $rs->execute();
-//     return $rs->fetchAll(\PDO::FETCH_ASSOC);
-// }
-
-
-function findAll(\PDO $conn, int $limit = 4){
+/**
+ * Affichage de 4 posts
+ *
+ * @param \PDO $conn
+ * @param integer $limit
+ * @return void
+ */
+function findAll(\PDO $conn, int $limit = 4, int $offset = 0){
     $sql = "SELECT *
             FROM posts
             ORDER BY datePublication DESC
-            LIMIT :limit;";
+            LIMIT :limit
+            OFFSET :offset;";
     $rs = $conn->prepare($sql);
     $rs->bindValue(':limit', $limit, \PDO::PARAM_INT);
+    $rs->bindValue(':offset', $offset, \PDO::PARAM_INT);
     $rs->execute();
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
@@ -45,3 +41,4 @@ function findOneByID(\PDO $conn,$id):array{
    return $rs->fetch(\PDO::FETCH_ASSOC);
 
 }
+

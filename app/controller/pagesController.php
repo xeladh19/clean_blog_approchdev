@@ -10,13 +10,13 @@ use \App\Model\PagesModel;
  * @param PDO $conn
  * @param int $id
  */
-function detailsAction(\PDO $conn, int $id) {
+function showAction(\PDO $conn, int $id) {
     include_once '../app/model/pagesModel.php';
     $page =  PagesModel\findOneByID($conn,$id);
 
     GLOBAL $content;
     ob_start();
-    include '../app/views/pages/index.php';
+    include '../app/views/pages/details.php';
     $content = ob_get_clean();
 }
 

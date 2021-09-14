@@ -17,24 +17,10 @@ use \Core\Functions;
       </div>
 
       <!-- POSTS LIST -->
-      <?php foreach($posts as $post): ?>
-
-      <div class="post-preview">
-        <a href="post/<?php echo $post['id']; ?>">
-          <h2 class="post-title">
-            <?php echo $post['titre']; ?>
-          </h2>
-          <h3 class="post-subtitle">
-            <?php echo $post['sousTitre']; ?>
-          </h3>
-        </a>
-        <p class="post-meta">Posted on <?php echo \Core\Functions\formater_date($post['datePublication'], 'F j, Y'); ?></p>
+      <div id ='list-posts'>
+      <?php include '../app/views/posts/liste.php'; ?>
       </div>
-      <hr>
-
-      <?php endforeach; ?>
-
       <!-- Pager -->
       <div class="clearfix">
-        <a class="btn btn-secondary float-right" href="#">Older Posts &rarr;</a>
+        <a class="btn btn-secondary float-right" id="older-posts" href="#">Older Posts &rarr;</a>
       </div>
