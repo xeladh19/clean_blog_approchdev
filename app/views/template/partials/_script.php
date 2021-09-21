@@ -9,5 +9,8 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/clean-blog.min.js"></script>
+    <!-- Custom scripts for the notification -->
+    <script src="vendor/bootstrap-notify-master/bootstrap-notify.min.js"></script>
+    <script src="js/app.js"></script>
 
     <?php echo $zoneScripts; ?>

@@ -14,7 +14,8 @@ function showAction(\PDO $conn, int $id) {
     include_once '../app/model/pagesModel.php';
     $page =  PagesModel\findOneByID($conn,$id);
 
-    GLOBAL $content;
+    GLOBAL $zoneTitre,$content;
+    $zoneTitre = $page['titre'];
     ob_start();
     include '../app/views/pages/details.php';
     $content = ob_get_clean();

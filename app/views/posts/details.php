@@ -7,14 +7,14 @@
  */
 ?>
  <!-- Page Header -->
- 
- <header class="masthead" style="background-image: url('img/<?php echo $page ['image']; ?>')">
+ <div class="post-details" data-id="<?php echo $post['id']; ?>">
+ <header class="masthead" style="background-image: url('img/<?php echo $post['image']; ?>')">
           <div class="container">
             <div class="row">
               <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="post-heading">
-                  <h1><?php echo $post['titre']; ?></h1>
-                  <h2 class="subheading"><?php echo $post['sousTitre']; ?></h2>
+                  <h1 class="editable" data-type="text" data-field="titre"><?php echo $post['titre']; ?></h1>
+                  <h2 class="subheading editable" data-type="text" data-field="sousTitre"><?php echo $post['sousTitre']; ?></h2>
                   <span class="meta">Posted on 
                   <?php echo \Core\Functions\formater_date($post['datePublication'], 'F j, Y'); ?></span>
                 </div>
@@ -36,10 +36,11 @@
 
 
                 <!-- POST DETAILS -->
-             <div>
+             <div class="editable" data-type="textarea" data-field="texte">
              <?php echo $post['texte']; ?>
              </div>
               </div>
             </div>
           </div>
         </article>
+        </div>

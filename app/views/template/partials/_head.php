@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <base href="http://localhost/approch_dev/clean_blog_approchdev/public/">
     <title>Clean Blog - <?php echo $zoneTitre; ?></title>
 
     <base href="http://localhost/approch_dev/clean_blog_approchdev/public/">

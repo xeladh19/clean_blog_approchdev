@@ -19,11 +19,6 @@ RewriteEngine on
     #Détails de la page x
     RewriteRule ^page\/([0-9]+)$ index.php?pageId=$1 [L]
 
-#ROUTE PAR DEFAUT:
-    #PATTERN: /
-    #Détails de la page 1
-    #RewriteRule ^(.*)$ index.php [L]
-
 
     
 # --------------------------------------------------
