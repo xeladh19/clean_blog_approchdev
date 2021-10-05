@@ -76,6 +76,31 @@ include '../app/views/posts/details.php';
 $content = ob_get_clean();
 }
 
+# --------------------------------------------------
+#  SUPPRESSION D'UN POST
+# --------------------------------------------------
+
+/**
+ * Supression d'un post
+ * @param \PDO $conn
+ * @param integer $id
+ * @return void
+ */ 
+function deleteAction(\PDO $conn, int $id) {
+    include_once '../app/model/postsModel.php';
+      $reponse = postsModel\deleteOneById($conn,$id);
+        // var_dump($reponse); die();
+      if($reponse == 1):
+        header('location: http://localhost/approch_dev/clean_blog_approchdev/public/');
+      else:
+        GLOBAL $content;
+        $content = "<h1>Erreur la page n'a pas pu être affichée</h1>
+                    <div>
+                    <button href='location: http://localhost/approch_dev/clean_blog_approchdev/public/'>Retour</button>
+                    </div>";
+      endif;
+}
+
 // ACTION AJAX ------------------------------------------------------------------------------------------------
 
 /**

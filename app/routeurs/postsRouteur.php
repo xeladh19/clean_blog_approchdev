@@ -26,5 +26,16 @@ switch ($_GET['posts']):
             include_once '../app/controller/postsController.php';
             App\Controller\PostsController\addAction($conn);
         break;
+# --------------------------------------------------
+# SUPPRESSION D'UN POST
+# --------------------------------------------------
+    //Delete post x
+    //PATTERN: /?postId= delete&postId=x
+    //CTRL:postsController
+    //ACTION:delete
+        case 'delete': 
+            include_once '../app/controller/postsController.php';
+            App\Controller\PostsController\deleteAction($conn,$_GET['postId']);
+        break;
 
     endswitch;

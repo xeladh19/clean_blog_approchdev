@@ -88,3 +88,17 @@ function insert (\PDO $conn, array $data){
                  return $rs->execute();
 
 }
+/**
+ * Delete post
+ *
+ * @param \PDO $conn
+ * @param integer $id
+ * @return void
+ */
+function deleteOneById(\PDO $conn,int $id){
+    $sql = " DELETE FROM `posts`
+             WHERE id = :id;";
+                $rs = $conn->prepare($sql);
+                $rs->bindValue(':id', $id, \PDO::PARAM_INT);
+                return ($rs->execute())?1:0;
+}

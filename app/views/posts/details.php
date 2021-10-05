@@ -31,7 +31,7 @@
                 <!-- EDIT -->
                 <div class="clearfix">
                   <a class="btn btn-secondary" href="#">Edit Post &rarr;</a>
-                  <a class="btn btn-secondary" href="#">Delete Post &rarr;</a>
+                  <a class="btn btn-secondary" href="posts/<?php echo $post['id'];?>/delete.html">Delete Post &rarr;</a>
                 </div>
 
 

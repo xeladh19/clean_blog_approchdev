@@ -8470,10 +8470,9 @@ label {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-style: normal;
     font-weight: 600;
-    text-transform: uppercase;
-    font-size: x-large;
+    /* text-transform: uppercase; */
+    /* font-size: x-large; */
 }
 .editable {
     text-align: center;
-    text-transform: uppercase;
 }
