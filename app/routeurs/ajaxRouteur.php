@@ -7,6 +7,7 @@ Routeur des transactions Ajax
 
  
 switch ($_GET['ajax']):
+
     //ROUTE 2
     //Update d'un champ 'Field'du post 'id'
     //PATTERN: /?ajax=updateField

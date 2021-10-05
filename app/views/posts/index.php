@@ -13,7 +13,7 @@ use \Core\Functions;
 
       <!-- ADD A POST -->
       <div class="clearfix">
-        <a class="btn btn-secondary float-left" href="#">Add Post &rarr;</a>
+        <a class="btn btn-secondary float-left" id="add-post" href="posts/add/form.html">Add Post &rarr;</a>
       </div>
 
       <!-- POSTS LIST -->

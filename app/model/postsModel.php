@@ -64,3 +64,27 @@ function updateField (\PDO $conn,int $id, string $field,string $value){
    return ($rs->execute())?1:0;
 
 }
+function insertForm(\PDO $conn){
+
+}
+/**
+ * Add a post
+ *
+ * @param \PDO $conn
+ * @param array $data
+ * @return void
+ */
+function insert (\PDO $conn, array $data){
+    $sql = " INSERT INTO posts
+             SET titre = :titre,
+                 sousTitre = :sousTitre,
+                 texte = :texte,
+                 datePublication = NOW(),
+                 user = 1;";
+                 $rs = $conn->prepare($sql);
+                 $rs->bindValue(':titre' , $data['titre'],\PDO::PARAM_STR);
+                 $rs->bindValue(':sousTitre' , $data['sousTitre'],\PDO::PARAM_STR);
+                 $rs->bindValue(':texte' , $data['texte'],\PDO::PARAM_STR);
+                 return $rs->execute();
+
+}

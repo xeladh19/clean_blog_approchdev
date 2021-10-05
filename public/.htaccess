@@ -8,19 +8,37 @@ Options +FollowSymlinks
 # Activation du module de réécriture d'URL :
 RewriteEngine on
 
+# --------------------------------------------------
+# DETAIL D'UN POST
+# --------------------------------------------------
 #DETAIL D'UN POST
     #PATTERN: /post/x
     #Détails du post x
     RewriteRule ^post\/([0-9]+)$ index.php?postId=$1 [L]
-
-
+# --------------------------------------------------
+# --------------------------------------------------
+# DETAIL D'UNE PAGE
+# --------------------------------------------------
 #DETAIL D'UNE PAGE 
     #PATTERN: /page/x
     #Détails de la page x
     RewriteRule ^page\/([0-9]+)$ index.php?pageId=$1 [L]
-
-
+# --------------------------------------------------
+# --------------------------------------------------
+#  ROUTE D'AJOUT D'UN POST: FORMULAIRE
+# --------------------------------------------------
+    #PATTERN: /posts/add/form.html
+    #FROM posts/add/form
+    #TO index.php?posts=addForm
+   RewriteRule ^posts\/add\/form.html$ index.php?posts=addForm [L]
     
+# --------------------------------------------------
+#  ROUTE D'AJOUT D'UN POST: INSERT
+# --------------------------------------------------
+    #PATTERN: /posts/add/insert.html
+    #FROM posts/add/insert
+    #TO index.php?posts=addInsert
+   RewriteRule ^posts\/add\/insert.html$ index.php?posts=addInsert [L]
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
 RewriteRule ^(.*)$ index.php [L]

@@ -10,9 +10,10 @@
     <base href="http://localhost/approch_dev/clean_blog_approchdev/public/">
     <title>Clean Blog - <?php echo $zoneTitre; ?></title>
 
-    <base href="http://localhost/approch_dev/clean_blog_approchdev/public/">
+    
 
     <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
