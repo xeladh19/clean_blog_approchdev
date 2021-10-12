@@ -101,6 +101,30 @@ function deleteAction(\PDO $conn, int $id) {
       endif;
 }
 
+# --------------------------------------------------
+#  FORMULAIRE DE L'EDITION D'UN POST 
+# --------------------------------------------------
+function editFormAction(\PDO $conn, int $id){
+  include_once '../app/model/postsModel.php';
+  $post = PostsModel\findOneByID($conn,$id);
+  GLOBAL $content,$zoneTitre,$zoneScripts;
+  ob_start();
+  include_once '../app/views/posts/editForm.php';
+  $content = ob_get_clean();
+}
+
+# --------------------------------------------------
+#  EDITION D'UN POST 
+# --------------------------------------------------
+
+function updateAction(\PDO $conn, int $id, array $data){
+  include_once '../app/model/postsModel.php';
+  postsModel\updateOneByID($conn,$id, $data);
+  header('location: http://localhost/approch_dev/clean_blog_approchdev/public/');
+}
+
+
+
 // ACTION AJAX ------------------------------------------------------------------------------------------------
 
 /**

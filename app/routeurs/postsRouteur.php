@@ -37,5 +37,27 @@ switch ($_GET['posts']):
             include_once '../app/controller/postsController.php';
             App\Controller\PostsController\deleteAction($conn,$_GET['postId']);
         break;
-
+# --------------------------------------------------
+# FORMULAIRE D'EDITION D'UN POST
+# --------------------------------------------------
+    //PATTERN: /?posts=editForm
+    //CTRL:postsController
+    //ACTION:editForm
+case 'editForm': 
+    include_once '../app/controller/postsController.php';
+    App\Controller\PostsController\editFormAction($conn,$_GET['postId']);
+break;
+# --------------------------------------------------
+# EDITION D'UN POST
+# --------------------------------------------------   
+    //Update post x
+    //PATTERN: /?postId= update&postId=x
+    //CTRL:postsController
+    //ACTION:update
+    case 'update': 
+        include_once '../app/controller/postsController.php';
+        App\Controller\PostsController\updateAction($conn,$_GET['postId'], $_POST);
+    break;
+        
     endswitch;
+

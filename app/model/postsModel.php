@@ -4,6 +4,10 @@
 */
 
 namespace App\Model\PostsModel;
+
+# --------------------------------------------------
+#  AFFICHAGE DES 4 POSTS    
+# --------------------------------------------------
 /**
  * Affichage de 4 posts
  *
@@ -24,6 +28,9 @@ function findAll(\PDO $conn, int $limit = 4, int $offset = 0){
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
 
+# --------------------------------------------------
+#  RETOURNE L'ENREGISTREMENT SUR BASE DE SON ID 
+# --------------------------------------------------
 /**
  * Retourne un enregistrement sur base de son id
  * @param PDO $conn
@@ -43,6 +50,9 @@ function findOneByID(\PDO $conn,int $id):array{
 }
 
 
+# --------------------------------------------------
+#  UPDATEFIELD
+# --------------------------------------------------
 /**
  * Update du champ $field de l'enregistrement $id
  * @param PDO $conn
@@ -64,9 +74,11 @@ function updateField (\PDO $conn,int $id, string $field,string $value){
    return ($rs->execute())?1:0;
 
 }
-function insertForm(\PDO $conn){
 
-}
+
+# --------------------------------------------------
+#  ADD A POST
+# --------------------------------------------------
 /**
  * Add a post
  *
@@ -88,6 +100,10 @@ function insert (\PDO $conn, array $data){
                  return $rs->execute();
 
 }
+
+# --------------------------------------------------
+#  DELETE POST
+# --------------------------------------------------
 /**
  * Delete post
  *
@@ -101,4 +117,32 @@ function deleteOneById(\PDO $conn,int $id){
                 $rs = $conn->prepare($sql);
                 $rs->bindValue(':id', $id, \PDO::PARAM_INT);
                 return ($rs->execute())?1:0;
+}
+
+# --------------------------------------------------
+#  UPDATE POST
+# --------------------------------------------------
+/**
+ * Update post
+ *
+ * @param \PDO $conn
+ * @param integer $id
+ * @param array $data
+ * @return void
+ */
+function updateOneByID(\PDO $conn, int $id, array $data){
+    $sql = "UPDATE `posts`
+            SET  titre = :titre,
+                 sousTitre = :sousTitre,
+                 texte = :texte,
+                 datePublication = NOW(),
+                 user = 1
+            WHERE id = :id;";
+            $rs = $conn->prepare($sql);
+            $rs->bindValue(':id',$id,\PDO::PARAM_INT);
+            $rs->bindValue(':titre' , $data['titre'],\PDO::PARAM_STR);
+            $rs->bindValue(':sousTitre' , $data['sousTitre'],\PDO::PARAM_STR);
+            $rs->bindValue(':texte' , $data['texte'],\PDO::PARAM_STR);
+            return $rs->execute();
+            
 }

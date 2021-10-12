@@ -30,7 +30,7 @@
               <div class="col-lg-8 col-md-10 mx-auto">
                 <!-- EDIT -->
                 <div class="clearfix">
-                  <a class="btn btn-secondary" href="#">Edit Post &rarr;</a>
+                  <a class="btn btn-secondary" href="posts/<?php echo $post['id'];?>/editForm.html">Edit Post &rarr;</a>
                   <a class="btn btn-secondary" href="posts/<?php echo $post['id'];?>/delete.html">Delete Post &rarr;</a>
                 </div>
 

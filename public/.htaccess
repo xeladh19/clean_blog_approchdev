@@ -43,11 +43,25 @@ RewriteEngine on
 # --------------------------------------------------
 #  ROUTE DE LA SUPPRESSION D'UN POST
 # --------------------------------------------------
-    #PATTERN: /posts/id/delete.html
-    #TO index.php?posts=delete
+    #PATTERN: /posts/delete.html
+    #TO index.php?posts=delete&postId=x
 RewriteRule ^posts\/([0-9]+)\/delete.html$ index.php?posts=delete&postId=$1 [L]
 
-
+# --------------------------------------------------
+#  ROUTE DE L'EDITION' D'UN POST: FORMULAIRE
+# --------------------------------------------------
+ 
+    #PATTERN: /posts/edit/form.html
+    #FROM posts/edit/form
+    #TO index.php?posts=editForm&postId=x
+RewriteRule ^posts\/([1-9][0-9]*)\/editForm.html$ index.php?posts=editForm&postId=$1 [L]
+# --------------------------------------------------
+#  ROUTE D'EDITION D'UN POST: UPDATE
+# --------------------------------------------------
+    #PATTERN: /posts/id/update.html
+    #FROM posts/id/update
+    #TO index.php?posts=editForm&postId=x
+   RewriteRule ^posts\/([1-9][0-9]*)\/update.html$ index.php?posts=update&postId=$1 [L]
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
 RewriteRule ^(.*)$ index.php [L]
